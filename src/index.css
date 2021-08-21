@@ -78,13 +78,18 @@ section {
 }
 
 .will-navigate {
+	opacity: 0;
 	transition: transform .3s, opacity .4s;
 }
-.navigation-exit {
+.nav-out {
+	display: none;
 	opacity: 0;
 	animation: fadeOutUp .4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.navigation-enter {
+.nav-loading {
+	opacity: 0;
+}
+.nav-in {
 	opacity: 1;
 	animation: fadeInUp .4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -93,10 +98,12 @@ section {
 
 @keyframes fadeOutUp {
 	0% {
+		display: block;
 		transform: translate3d(0,0,0)
 	}
 
 	100% {
+		display: block;
 		transform: translate3d(0,-50px,0)
 	}
 }
@@ -155,4 +162,20 @@ footer {
 body > div {
 	width: 100%;
 	min-height: 100%;
+}
+
+.Sparkles {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	border-radius: 0.2em;
+}
+
+.Sparkles--sparkle {
+	position: absolute;
+	width: 1em;
+	bottom: 100%;
+	left: 0;
+	pointer-events: none;
+	user-select: none;
 }

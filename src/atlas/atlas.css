@@ -1,0 +1,257 @@
+section.page-atlas {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+section.page-atlas nav {
+	position: static;
+	padding: 1rem 1rem 1rem 5vw;
+	box-shadow: 0 0 10px #222244;
+}
+section.page-atlas footer {
+	position: static;
+	padding: 1rem;
+	box-shadow: 0 0 10px #222244;
+	z-index: 9;
+}
+.atlas-page {
+	width: 100%;
+	flex-grow: 1;
+	display: flex;
+	align-items: stretch;
+	flex-direction: row;
+	height: 0;
+}
+
+.atlas-leftestnav {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	flex-shrink: 0;
+}
+.atlas-leftnav {
+	flex-shrink: 0;
+	overflow-y: scroll;
+	padding: 0 2rem 0 1.5rem;
+	direction: rtl;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.atlas-leftnav::-webkit-scrollbar, .atlas-remains::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+.atlas-leftnav::-webkit-scrollbar-thumb, .atlas-remains::-webkit-scrollbar-thumb {
+	background: #D600D6;
+	border-radius: 50px;
+}
+.atlas-leftnav::-webkit-scrollbar-thumb:hover, .atlas-remains::-webkit-scrollbar-thumb:hover {
+	background: #FF00FF;
+}
+.atlas-leftnav::-webkit-scrollbar-track, .atlas-remains::-webkit-scrollbar-track{
+	background: none;
+}
+
+.atlas-remains {
+	overflow-y: scroll;
+	flex-grow: 1;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+.atlas-remains > * {
+	width: max-content;
+	max-width: 70%;
+}
+.atlas-leftestIcon {
+	width: 3vw;
+	height: 3vw;
+	margin: 1.5vw;
+	cursor: pointer;
+	transition: opacity 250ms;
+}
+.atlas-leftestIcon:hover {
+	opacity: 1;
+}
+.atlas-shownIcon {
+	opacity: 0.9;
+}
+.atlas-hiddenIcon {
+	opacity: 0.4;
+}
+.atlas-cmdCat {
+	direction: ltr;
+	width: 100%;
+	text-align: left;
+}
+.atlas-cmdCat:not(:last-child) {
+	margin-bottom: 2em;
+}
+.atlas-cmdCat::marker {
+	display: none;
+	content: none;
+}
+.atlas-cmdCatH {
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+.atlas-cmd {
+	text-align: left;
+	width: 100%;
+	cursor: pointer;
+}
+.atlas-cmdB {
+	text-align: left;
+	width: 100%;
+	cursor: inherit;
+}
+
+
+/* Command tester */
+.atlas-inp {
+	position: relative;
+	margin-top: 1rem;
+	margin-left: 1rem;
+	font-size: 1.1rem;
+	border-bottom: solid 1px white;
+	width: 40ch;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	padding: .25rem 0.5rem;
+	outline: none;
+}
+.atlas-inp[disabled] {
+	border-color: rgba(255, 255, 255, 0.54);
+	background: #000000;
+	color: #a0a0a0;
+	text-shadow: none;
+	cursor: not-allowed;
+}
+
+.atlas-outputwrap {
+	display: flex;
+	align-items: start;
+	width: 100%;
+	flex-direction: column;
+}
+
+.atlas-output {
+	border-radius: 1rem;
+	background: #1d1744;
+	width: max-content;
+	overflow: hidden;
+	position: relative;
+}
+
+.atlas-errorBoi {
+	background: #202225;
+	padding: 1em 2em;
+	font-weight: bolder;
+	font-size: 1.1rem;
+	color: rgba(255, 0, 0, 0.925);
+	width: 100%;
+	transition: height 250ms;
+}
+
+.atlas-padder {
+	padding: 1em;
+	min-width: 50ch;
+	transition: opacity 350ms;
+}
+
+.atlas-loaderBar {
+	position: absolute;
+	height: 0.25rem;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 1rem;
+}
+.atlas-loaderBar:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 50%;
+	opacity: 0;
+	background: rgb(85, 76, 163);
+	transform: translateX(-100%);
+	border-radius: 100vw;
+	transition: opacity 150ms;
+}
+
+.atlas-loaderBar.loading:before {
+	opacity: 1;
+	animation: atlas-loadeyboye .5s infinite;
+}
+
+@keyframes atlas-loadeyboye {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(200%);
+	}
+}
+
+.atlas-tCmdCat {
+	margin-top: 1rem;
+	font-size: 0.9rem;
+	opacity: 0.5;
+	cursor: pointer;
+}
+.atlas-tCmdCatB {
+	cursor: inherit;
+}
+.atlas-tCmdHeader {
+	font-size: 2.2rem;
+	font-weight: bolder;
+}
+.atlas-aliases {
+	font-style: italic;
+	font-size: 0.9rem;
+}
+.atlas-desc {
+	margin: 1rem 0;
+	font-size: 1.1rem;
+}
+.atlas-usage {
+	background: rgb(85, 76, 163);
+	padding: 0.4rem 1rem;
+	width: max-content;
+	border-radius: 0.2rem;
+}
+
+.atlas-placeholder {
+    animation: atlas-placeholder-pulse 2s infinite;
+    background-image: linear-gradient(148deg, rgba(2,0,36,1) 0%, rgba(50,50,50,1) 100%);
+}
+
+@keyframes atlas-placeholder-pulse {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        transform: scaleX(1)
+    }
+    50% {
+        opacity: 0.9;
+        transform: scaleX(1.05)
+    }
+    60% {
+        transform: scaleX(1)
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+.atlas-placeholderIcon {
+    border-radius: 100%;
+    cursor: default;
+}
